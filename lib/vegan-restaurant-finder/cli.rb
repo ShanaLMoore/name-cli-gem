@@ -1,6 +1,6 @@
 class VeganRestaurantFinder::CLI
 
-  attr_accessor :location, :name
+  attr_accessor :location
 
   def call
     puts "Welcome to Vegan Restaurant Finder!"
@@ -11,7 +11,7 @@ class VeganRestaurantFinder::CLI
   def get_location(location)
     until location == "exit"
       puts "Please enter your zip code. We will list your local vegan restaurants within a 15 mile radius!"
-      puts "Type in 'exit' to exit this program."
+      puts "Type in 'exit' to end this program."
       location = gets.to_i
     end
   end

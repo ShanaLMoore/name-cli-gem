@@ -8,3 +8,5 @@ require "vegan-restaurant-finder/movie"
 module VeganRestaurantFinder
   VERSON = "0.0.0"
 end
+
+VeganRestaurantFinder::CLI.new.call
