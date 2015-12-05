@@ -1,7 +1,11 @@
-class VeganRestaurantFinder
-  def self.location(location)
-    puts "You live in #{location}" 
-  end
-end
+require 'open-uri'
+require 'pry'
+require 'nokogiri'
+require 'rest-client'
 
-VeganRestaurantFinder.location("Petaluma")
+require "vegan-restaurant-finder/cli"
+require "vegan-restaurant-finder/movie"
+
+module VeganRestaurantFinder
+  VERSON = "0.0.0"
+end
