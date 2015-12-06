@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'vegan_restaurant_finder'
+
+VeganRestaurantFinder::CLI.new.call(postcode)
