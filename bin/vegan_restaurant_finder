@@ -2,4 +2,4 @@
 
 require 'vegan_restaurant_finder'
 
-VeganRestaurantFinder::CLI.new.call(postcode)
+VeganRestaurantFinder.new

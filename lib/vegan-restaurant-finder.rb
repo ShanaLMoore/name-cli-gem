@@ -1,7 +1,6 @@
 require 'open-uri'
 require 'pry'
-require 'nokogiri'
- require 'json'
+require 'json'
 
 require "vegan-restaurant-finder/cli"
 
