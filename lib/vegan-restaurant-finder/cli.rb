@@ -2,40 +2,23 @@ require 'pry'
 require 'json'
 require 'open-uri'
 
-# class VeganRestaurantFinder::CLI
+class VeganRestaurantFinder
 
-#   attr_accessor :postcode
+  attr_accessor :postcode
 
-#   def initialize(postcode)
-#     @postcode = postcode
-#     call
-#   end
-
-  def call(postcode=nil)
-    puts "Welcome to Vegan Restaurant Finder!"
-    
-    until postcode == "exit"
-        puts "Please enter your zip code. We will list your local vegan restaurants!"
-        puts "Type 'exit' to end this program."
-        postcode = gets.strip.to_i
-        get_vegan_restaurants_for_postcode(postcode)
-    end
+  def initialize(postcode = nil)
+    @postcode = postcode
+    call
   end
 
-  # def list_restaurants
-  #   puts "************* Yay! The Following Restaurants in your area are Vegan! *************"
+  def call(postcode = nil)
+    puts "Welcome to Vegan Restaurant Finder!"
+    puts "Please enter your zip code. We will list your local vegan restaurants!"
 
-  #   puts ""
-  #   VeganRestaurantFinder::Restaurant.all.each_with_index(1) do |restaurant, index| puts "#{index}. #{restaurant.name}"
+    postcode = gets
+    get_vegan_restaurants_for_postcode(postcode)
+  end
 
-  #   puts "Want more information? Enter the index number of the restaurant you wish to see."
-  #   index = gets.strip.to_i
-      
-  #   puts "#{restaurant.summary}"
-  # end
-
-
-  # private 
   def get_vegan_restaurants_for_postcode(postcode)
     # 1. constructs a request url 
     url = "http://www.vegguide.org/search/by-address/#{postcode}/filter/veg_level=5"
@@ -49,9 +32,25 @@ require 'open-uri'
     entries.map do |hash|
       @restaurant_names = hash["name"]
     end
+    list_restaurants
   end
 
-  binding.pry
+  def list_restaurants
+    puts "************* Yay! The Following Restaurants in your area are Vegan! *************"
+
+    puts ""
+    @restaurant_names.each_with_index do |name, index| puts "#{index+1}. #{name}"
+    end
+
+    # puts "Want more information? Enter the index number of the restaurant you wish to see."
+    # index = gets.strip.to_i
+      
+    # puts "#{restaurant.summary}"
+
+  end
+end
+
+VeganRestaurantFinder.new
 
 
 
