@@ -15,7 +15,7 @@ class VeganRestaurantFinder
     puts "Welcome to Vegan Restaurant Finder!"
     puts "Please enter your zip code. We will list your local vegan restaurants!"
 
-    postcode = gets
+    postcode = gets.strip.to_i
     get_vegan_restaurants_for_postcode(postcode)
   end
 
@@ -29,25 +29,26 @@ class VeganRestaurantFinder
     # 3. parses the string into data the application can understand
     vegan_data = JSON.parse(json_response)
     entries = vegan_data["entries"]  
-    entries.map do |hash|
-      @restaurant_names = hash["name"]
+    @restaurant_names = entries.map do |hash|
+       hash["name"]
     end
-    list_restaurants
+    list_restaurants(postcode)
   end
 
-  def list_restaurants
-    puts "************* Yay! The Following Restaurants in your area are Vegan! *************"
+  def list_restaurants(postcode)
+    puts "************* Good news! The Following Establishments in #{postcode} are Vegan! *************"
 
     puts ""
     @restaurant_names.each_with_index do |name, index| puts "#{index+1}. #{name}"
     end
-
-    # puts "Want more information? Enter the index number of the restaurant you wish to see."
-    # index = gets.strip.to_i
-      
-    # puts "#{restaurant.summary}"
-
   end
+
+  # def more_information
+  #       # puts "Want more information? Enter the index number of the restaurant you wish to see."
+  #   # index = gets.strip.to_i
+      
+  #   # puts "#{restaurant.summary}"
+  # end
 end
 
 VeganRestaurantFinder.new
