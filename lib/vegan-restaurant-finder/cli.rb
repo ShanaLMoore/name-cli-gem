@@ -28,15 +28,20 @@ class VeganRestaurantFinder
     
     # 3. parses the string into data the application can understand
     vegan_data = JSON.parse(json_response)
-    entries = vegan_data["entries"]  
-    @restaurant_names = entries.map do |hash|
+    @entries = vegan_data["entries"]
+
+    @restaurant_names = @entries.map do |hash|
        hash["name"]
+    end
+
+    @restaurant_info = @entries.map do |hash|
+       hash["name"] = {name: hash["name"], address: hash["address1"], city: hash["city"], region: hash["region"], phone: hash["phone"], hours: hash["hours"], description: hash["short_description"], website: hash["website"] }
     end
     list_restaurants(postcode)
   end
 
   def list_restaurants(postcode)
-    puts "************* Good news! The Following Establishments in #{postcode} are Vegan! *************"
+    puts "************* Good news! The Following Establishments in #{postcode} are 100% Vegan! *************"
 
     puts ""
     @restaurant_names.each_with_index do |name, index| puts "#{index+1}. #{name}"
@@ -50,6 +55,8 @@ class VeganRestaurantFinder
   #   # puts "#{restaurant.summary}"
   # end
 end
+
+VeganRestaurantFinder.new
 
 
 
