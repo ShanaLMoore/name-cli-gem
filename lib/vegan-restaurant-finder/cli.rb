@@ -35,7 +35,7 @@ class VeganRestaurantFinder
     end
 
     @restaurant_info = @entries.map do |hash|
-       hash["name"] = {name: hash["name"], address: hash["address1"], city: hash["city"], region: hash["region"], phone: hash["phone"], hours: hash["hours"], description: hash["short_description"], website: hash["website"] }
+       hash["name"] = {name: hash["name"], address: hash["address1"], city: hash["city"], region: hash["region"], phone: hash["phone"], description: hash["short_description"], website: hash["website"] }
     end
     list_restaurants(postcode)
   end
@@ -46,14 +46,28 @@ class VeganRestaurantFinder
     puts ""
     @restaurant_names.each_with_index do |name, index| puts "#{index+1}. #{name}"
     end
+    more_information
   end
 
-  # def more_information
-  #       # puts "Want more information? Enter the index number of the restaurant you wish to see."
-  #   # index = gets.strip.to_i
+  def more_information
+    puts ""
+    puts "Want more information? Enter the index number of the restaurant you wish to see."
+    index = gets.strip.to_i
       
-  #   # puts "#{restaurant.summary}"
-  # end
+    @restaurant_info[index-1].each do |key, value|
+      puts "#{key}: #{value}"
+    end
+
+    puts ""
+    puts "Type 'back' to return to the list of restaurants. Type 'quit' to exit this program." 
+
+    input = gets.strip.downcase
+
+    if input == "back"
+      list_restaurants(postcode)
+    end
+
+  end
 end
 
 VeganRestaurantFinder.new
