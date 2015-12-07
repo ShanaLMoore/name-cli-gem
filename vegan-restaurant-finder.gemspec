@@ -9,6 +9,12 @@ Gem::Specification.new do |s|
   s.files       = ["lib/vegan-restaurant-finder.rb", "lib/vegan-restaurant-finder/cli.rb"]
   s.homepage    =
     'http://rubygems.org/gems/vegan-restaurant-finder'
-  s.license       = 'Learn.co'
+  s.license       = 'MIT'
   s.executables << 'vegan-restaurant-finder'
+
+  s.add_development_dependency "bundler", "~> 1.10"
+  s.add_development_dependency "rake", "~> 10.0"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "json"
+  s.add_development_dependency "open-uri"
 end
