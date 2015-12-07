@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'vegan_restaurant_finder'
-
-VeganRestaurantFinder.new

@@ -10,5 +10,5 @@ Gem::Specification.new do |s|
   s.homepage    =
     'http://rubygems.org/gems/vegan-restaurant-finder'
   s.license       = 'MIT'
-  s.executables << 'vegan_restaurant_finder'
+  s.executables << 'vegan-restaurant-finder'
 end

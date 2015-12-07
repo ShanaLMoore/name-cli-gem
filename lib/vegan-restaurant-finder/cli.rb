@@ -71,7 +71,6 @@ class VeganRestaurantFinder
   end
 end
 
-VeganRestaurantFinder.new
 
 
 
