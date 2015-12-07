@@ -55,12 +55,17 @@ class VeganRestaurantFinder
     puts "Want more information? Enter the index number of the restaurant you wish to see."
     index = gets.strip.to_i
     puts ""
+
+    if index <= @restaurant_names.count
     @restaurant_info[index-1].each do |key, value|
       puts "#{key}: #{value}"
+      end
+    else
+      puts "That's an invalid entry!"
     end
 
     puts ""
-    puts "Type 'back' to return to the list of restaurants. Type 'quit' to exit this program." 
+    puts "Type 'back' to return to the list of restaurants. Enter any 'exit' to end this program." 
 
     input = gets.strip.downcase
 
