@@ -41,7 +41,8 @@ class VeganRestaurantFinder
   end
 
   def list_restaurants(postcode)
-    puts "************* Good news! The Following Establishments in #{postcode} are 100% Vegan! *************"
+    @postcode = postcode
+    puts "************* Good news! The Following Establishments in #{@postcode} are 100% Vegan! *************"
 
     puts ""
     @restaurant_names.each_with_index do |name, index| puts "#{index+1}. #{name}"
@@ -53,7 +54,7 @@ class VeganRestaurantFinder
     puts ""
     puts "Want more information? Enter the index number of the restaurant you wish to see."
     index = gets.strip.to_i
-      
+    puts ""
     @restaurant_info[index-1].each do |key, value|
       puts "#{key}: #{value}"
     end
