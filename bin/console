@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/environment'
+
+def reload!
+  load '../config/environment.rb'
+  load '../lib/vegan-restaurant-finder/vegan_restaurant'
+  load '../lib/vegan-restaurant-finder/cli'
+end
+
+require 'pry'
+Pry.start

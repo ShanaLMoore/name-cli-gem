@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = "This gem finds local vegan restaurants."
   s.authors     = ["Shana Moore"]
   s.email       = 'shana.lavina.moore@gmail.com'
-  s.files       = ["lib/vegan-restaurant-finder.rb", "lib/vegan-restaurant-finder/cli.rb"]
+  s.files       = ["lib/vegan-restaurant-finder.rb", "lib/vegan-restaurant-finder/cli.rb", "lib/vegan-restaurant-finder/vegan_restaurant.rb"]
   s.homepage    =
     'http://rubygems.org/gems/vegan-restaurant-finder'
   s.license       = 'MIT'

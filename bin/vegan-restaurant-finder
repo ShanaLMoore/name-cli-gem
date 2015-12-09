@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/vegan-restaurant-finder/cli'
+# Loads our environment
+require_relative '../config/environment'
 
+
+# Starts our program
 VeganRestaurantFinder.new
