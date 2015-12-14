@@ -36,7 +36,7 @@ class VeganRestaurantFinder
     index = gets.strip.to_i-1
     puts ""
 
-    if restaurant = @restaurants[index]      
+    if restaurant = VeganRestaurant.find(index)
       puts "Name: #{restaurant.name}"
       puts "Address: #{restaurant.address1}"
       puts "City: #{restaurant.city}"
