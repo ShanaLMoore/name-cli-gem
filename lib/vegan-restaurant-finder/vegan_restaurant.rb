@@ -4,7 +4,7 @@ require 'json'
 
 class VeganRestaurant
   @@all = []
-  attr_accessor :name, :address1, :city, :region, :phone, :short_description, :website, :rating
+  attr_accessor :name, :address1, :city, :region, :phone, :short_description, :website, :distance, :veg_level_description, :long_description, :reviews_uri, :sortable_name, :postal_code, :user, :is_wheelchair_accessible, :neighborhood, :hours, :cuisines, :weighted_rating, :uri, :veg_level, :creation_datetime, :allows_smoking, :payment_options, :last_modified_datetime, :price_range, :images, :country, :rating_count, :categories, :is_cash_only, :tags, :directions, :accepts_reservations
   def self.all
     @@all
   end
