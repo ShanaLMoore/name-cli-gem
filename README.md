@@ -1,3 +1,10 @@
+# Vegan Restaurant Finder
+
+## Usage
+
+Download this ruby gem to find your local vegan restaurants! 
+
+
 <!-- Slack Ruby Client
 =================
 
